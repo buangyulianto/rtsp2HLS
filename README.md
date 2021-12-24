@@ -13,7 +13,7 @@ Spesifikasi:
 ==
 <li>Laptop Acer swift 3, core i7 1,8GHz, 8GB RAM, 1TB SSD, LAN terhubung ke jaringan
 <li>VM Linux Ubuntu 18.04_x64, 4vCPU, 4GB RAM, 20GB HDD, bridge LAN
-<li>DVR SPC
+<li>Perangkat DVR SPC
 
 Requirements:
 ==
@@ -22,7 +22,7 @@ Requirements:
 <li>Memiliki akses ke perangkat DVR
 <li>Memiliki URL RTSP dari perangkat DVR. Dalam hal ini sebagai contoh rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1
 <li>Keterangan
-  - Protokol: RTSP
+  <li>Protokol: RTSP
   - Username: admin
   - Password: passworddvr
   - IP address DVR: 10.21.0.15
