@@ -33,6 +33,12 @@ Requirements:
 Step-by-step:
 ==
 VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu dengan laptop yang terinstall pada aplikasi virtualbox.
+  <h3>Test rtsp url diatas pada VLC player terlebhi dahulu</h3>
+  <li>Install VLC player pada windows
+  <li>Klik menu Media > Open Network Stream
+  <li>Masukan Network URL rtsp diatas
+  <li>Kesimpulan: Jika video tampil pada player VLC maka alamat rtsp diatas sudah benar dan siap di uji cobakan pada proses berikutnya.
+<h3>Menyiapkan VM sebagai server RTSP dan konverter ke HLS supaya dapat diakses pada browser</h3>
 <li>Install apps virtualbox
 <li>Create new VM Linux Ubuntu 18.04 dengan spesifikasi yang telah ditentukan diatas
 <li>Install Sistem Operasi Linux Ubuntu
