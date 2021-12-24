@@ -23,12 +23,12 @@ Requirements:
 <li>Memiliki URL RTSP dari perangkat DVR. Dalam hal ini sebagai contoh rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1
 <li>Keterangan
   <ul>Protokol: RTSP
-  - Username: admin
-  - Password: passworddvr
-  - IP address DVR: 10.21.0.15
-  - Port RTSP: 554
-  - ID kamera: idc=6
-  - Mode kamera: ids=1 (1 merupakan kode untuk stream, 2 untuk substream)
+  <ul>Username: admin
+  <ul>Password: passworddvr
+  <ul>IP address DVR: 10.21.0.15
+  <ul>Port RTSP: 554
+  <ul>ID kamera: idc=6
+  <ul>Mode kamera: ids=1 (1 merupakan kode untuk stream, 2 untuk substream)
 Step-by-step:
 ==
 VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu dengan laptop yang terinstall pada aplikasi virtualbox.
@@ -40,4 +40,6 @@ VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu
 <li>reboot
 <li>Login ke VM
 <li>Copy semua file dari halaman ini ke VM dengan path /opt, bisa dengan menggunakan wincp atau git dengan perintah git clone https://github.com/buangyulianto/rtsp2HLS.git
-<li>
+<li>Edit file rtsp-simple-server.yml dan sesuaikan isinya dengan kondisi masing2
+<code>cam6:
+<code>  source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1
