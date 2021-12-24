@@ -140,7 +140,7 @@ paths:
     readUser:
     readPass:
     readIPs: []
-#    runOnInit: ffmpeg -i rtsp://umk:umk438229@10.21.0.14:554/mode=real&idc=1&ids=1 -c copy -f hls -hls_time 1 -hls_list_size 3 -hls_flags delete_segments -hls_allow_cache 0 /opt/cam6.m3u8
+#    runOnInit: 
 #    runOnInitRestart: yes
     runOnDemand:
     runOnDemandRestart: no
