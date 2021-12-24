@@ -23,7 +23,7 @@ Memiliki akses ke perangkat DVR
 Step-by-step:
 ==
 VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu dengan laptop yang terinstall pada aplikasi virtualbox.
-Install apps virtualbox
+<li>Install apps virtualbox</li>
 Create new VM Linux Ubuntu 18.04 dengan spesifikasi yang telah ditentukan diatas
 Install Sistem Operasi Linux Ubuntu
 Gunakan IP address statis 10.21.0.19 (silakan menyesuaikan dengan jaringan masing2)
