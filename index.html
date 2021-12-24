@@ -1,0 +1,76 @@
+   <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset=utf-8 />
+    <title>Dev CCTV</title>
+    <link href="http://10.21.0.19/bootstrap.min.css" rel="stylesheet">
+<!--    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">-->
+    <link href="http://10.21.0.19/video-js.css" rel="stylesheet">
+       
+    </head>
+    <body>
+<div class="container">
+  <div class="row">
+<!--    <div class="col-lg-4">
+      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam1.m3u8" type="application/x-mpegURL">
+      </video>
+      <h1>Cam1</h1>
+    </div>
+    <div class="col-lg-4">
+      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam2.m3u8" type="application/x-mpegURL">
+      </video>
+     <h1>Cam2</h1>
+    </div>
+    <div class="col-lg-4">
+      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam3.m3u8" type="application/x-mpegURL">
+      </video>
+     <h1>Cam3</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam4.m3u8" type="application/x-mpegURL">
+      </video>
+     <h1>Cam4</h1>
+    </div>
+    <div class="col-lg-4">
+      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam5.m3u8" type="application/x-mpegURL">
+      </video>
+     <h1>Cam5</h1>
+    </div>-->
+    <div class="col-lg-12">
+      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam6.m3u8" type="application/x-mpegURL">
+      </video>
+     <h1>Cam6</h1>
+    </div>
+  </div>
+</div>
+<!--      <video id="mycam6" class="video-js vjs-fluid vjs-default-skin" width="600" height="400" controls preload="auto"
+      data-setup='{}'>
+        <source src="http://10.21.0.19/cam6.m3u8" type="application/x-mpegURL">
+      </video>
+-->      
+<!--      <script src="https://unpkg.com/video.js/dist/video.js"></script>-->
+      <script src="http://10.21.0.19/video.js"></script>
+<!--      <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>-->
+      <script src="http://10.21.0.19/videojs-contrib-hls.js"></script>
+
+    <script>
+    var player = videojs('mycam6');
+    player.play();
+    </script>
+      
+    </body>
+    </html>

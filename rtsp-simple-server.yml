@@ -1,0 +1,166 @@
+
+###############################################
+# General parameters
+
+# sets the verbosity of the program; available values are "error", "warn", "info", "debug".
+logLevel: info
+# destinations of log messages; available values are "stdout", "file" and "syslog".
+logDestinations: [stdout]
+# if "file" is in logDestinations, this is the file which will receive the logs.
+logFile: rtsp-simple-server.log
+
+# timeout of read operations.
+readTimeout: 10s
+# timeout of write operations.
+writeTimeout: 10s
+# number of read buffers.
+# a higher number allows a higher throughput,
+# a lower number allows to save RAM.
+readBufferCount: 512
+
+# enable the HTTP API.
+api: no
+# address of the API listener.
+apiAddress: 127.0.0.1:9997
+
+# enable Prometheus-compatible metrics.
+metrics: no
+# address of the metrics listener.
+metricsAddress: 127.0.0.1:9998
+
+# enable pprof-compatible endpoint to monitor performances.
+pprof: no
+# address of the pprof listener.
+pprofAddress: 127.0.0.1:9999
+
+# command to run when a client connects to the server.
+# this is terminated with SIGINT when a client disconnects from the server.
+# the server port is available in the RTSP_PORT variable.
+runOnConnect: 
+# the restart parameter allows to restart the command if it exits suddenly.
+runOnConnectRestart: no
+
+###############################################
+# RTSP parameters
+
+# disable support for the RTSP protocol.
+rtspDisable: no
+# supported RTSP transport protocols.
+# UDP is the most performant, but doesn't work when there's a NAT/firewall between
+# server and clients, and doesn't support encryption.
+# UDP-multicast allows to save bandwidth when clients are all in the same LAN.
+# TCP is the most versatile, and does support encryption.
+# The handshake is always performed with TCP.
+protocols: [udp, multicast, tcp]
+# encrypt handshake and TCP streams with TLS (RTSPS).
+# available values are "no", "strict", "optional".
+encryption: "no"
+# address of the TCP/RTSP listener. This is needed only when encryption is "no" or "optional".
+rtspAddress: :8554
+# address of the TCP/TLS/RTSPS listener. This is needed only when encryption is "strict" or "optional".
+rtspsAddress: :8555
+# address of the UDP/RTP listener. This is needed only when "udp" is in protocols.
+rtpAddress: :8000
+# address of the UDP/RTCP listener. This is needed only when "udp" is in protocols.
+rtcpAddress: :8001
+# IP range of all UDP-multicast listeners. This is needed only when "multicast" is in protocols.
+multicastIPRange: 224.1.0.0/16
+# port of all UDP-multicast/RTP listeners. This is needed only when "multicast" is in protocols.
+multicastRTPPort: 8002
+# port of all UDP-multicast/RTCP listeners. This is needed only when "multicast" is in protocols.
+multicastRTCPPort: 8003
+# path to the server key. This is needed only when encryption is "strict" or "optional".
+# this can be generated with:
+# openssl genrsa -out server.key 2048
+# openssl req -new -x509 -sha256 -key server.key -out server.crt -days 3650
+serverKey: server.key
+# path to the server certificate. This is needed only when encryption is "strict" or "optional".
+serverCert: server.crt
+# authentication methods.
+authMethods: [basic, digest]
+# read buffer size.
+# this doesn't influence throughput and shouldn't be touched unless the server
+# reports errors about the buffer size.
+readBufferSize: 2048
+
+###############################################
+# RTMP parameters
+
+# disable support for the RTMP protocol.
+rtmpDisable: no
+# address of the RTMP listener.
+rtmpAddress: :1935
+
+###############################################
+# HLS parameters
+
+# disable support for the HLS protocol.
+hlsDisable: no
+# address of the HLS listener.
+hlsAddress: :8888
+# by default, HLS is generated only when requested by a user;
+# this option allows to generate it always, avoiding an initial delay.
+hlsAlwaysRemux: no
+# number of HLS segments to generate.
+# increasing segments allows more buffering,
+# decreasing segments decreases latency.
+hlsSegmentCount: 3
+# minimum duration of each segment.
+# the final segment duration is also influenced by the interval between IDR frames,
+# since the server changes the segment duration to include at least a IDR frame in each one.
+hlsSegmentDuration: 1s
+# value of the Access-Control-Allow-Origin header provided in every HTTP response.
+# This allows to play the HLS stream from an external website.
+hlsAllowOrigin: '*'
+
+###############################################
+# Path parameters
+
+# these settings are path-dependent.
+# it's possible to use regular expressions by using a tilde as prefix.
+# for example, "~^(test1|test2)$" will match both "test1" and "test2".
+# for example, "~^prefix" will match all paths that start with "prefix".
+# the settings under the path "all" are applied to all paths that do not match
+# another entry.
+paths:
+  all:
+    source: publisher
+    sourceProtocol: automatic
+    sourceAnyPortEnable: no
+    sourceFingerprint:
+    sourceOnDemand: no
+    sourceOnDemandStartTimeout: 10s
+    sourceOnDemandCloseAfter: 10s
+    sourceRedirect:
+    disablePublisherOverride: no
+    fallback:
+    publishUser: umk
+    publishPass: umk438229
+    publishIPs: []
+    readUser:
+    readPass:
+    readIPs: []
+#    runOnInit: ffmpeg -i rtsp://umk:umk438229@10.21.0.14:554/mode=real&idc=1&ids=1 -c copy -f hls -hls_time 1 -hls_list_size 3 -hls_flags delete_segments -hls_allow_cache 0 /opt/cam6.m3u8
+#    runOnInitRestart: yes
+    runOnDemand:
+    runOnDemandRestart: no
+    runOnDemandStartTimeout: 10s
+    runOnDemandCloseAfter: 10s
+#    runOnPublish:
+#    runOnPublishRestart: no
+    runOnRead:
+    runOnReadRestart: no
+#  cam1:
+#    source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=1&ids=1
+#  cam2:
+#    source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=2&ids=1
+#  cam3:
+#    source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=3&ids=1
+#  cam4:
+#    source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=4&ids=1
+#  cam5:
+#    source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=5&ids=1
+  cam6:
+    source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1
+#  streamnow:
+#    konfigurasi streamnow cek file /opt/stream/cam1.sh dengan executor file /opt/sreamnow.sh
