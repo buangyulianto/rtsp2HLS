@@ -21,15 +21,14 @@ Requirements:
 <li>Mengetahui dasar perintah linux
 <li>Memiliki akses ke perangkat DVR
 <li>Memiliki URL RTSP dari perangkat DVR. Dalam hal ini sebagai contoh rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1
-<li>Keterangan
-  <ul>Protokol: RTSP
-  Username: admin
-  Password: passworddvr
-  IP address DVR: 10.21.0.15
-  Port RTSP: 554
-  ID kamera: idc=6
-  Mode kamera: ids=1 (1 merupakan kode untuk stream, 2 untuk substream)
-  </ul>
+<li>Keterangan:
+  - Protokol: RTSP
+  - Username: admin
+  - Password: passworddvr
+  - IP address DVR: 10.21.0.15
+  - Port RTSP: 554
+  - ID kamera: idc=6
+  - Mode kamera: ids=1 (1 merupakan kode untuk stream, 2 untuk substream)
 Step-by-step:
 ==
 VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu dengan laptop yang terinstall pada aplikasi virtualbox.
