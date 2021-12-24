@@ -29,6 +29,7 @@ Requirements:
   - Port RTSP: 554
   - ID kamera: idc=6
   - Mode kamera: ids=1 (1 merupakan kode untuk stream, 2 untuk substream)
+
 Step-by-step:
 ==
 VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu dengan laptop yang terinstall pada aplikasi virtualbox.
@@ -41,5 +42,7 @@ VM yang terhubung ke jaringan bisa menggunakan alat yang terpisah atau jadi satu
 <li>Login ke VM
 <li>Copy semua file dari halaman ini ke VM dengan path /opt, bisa dengan menggunakan wincp atau git dengan perintah git clone https://github.com/buangyulianto/rtsp2HLS.git
 <li>Edit file rtsp-simple-server.yml dan sesuaikan isinya dengan kondisi masing2
+<br>Tampak code yang aktif untuk kamera 6 saja karena sifatnya hanyalah testing, meskipun jika pada DVR terdapat lebih dari satu kamera tetap dapat diproses dengan konsekuensi resource CPU yang meningkat.</br>
 <code>cam6:
-<code>  source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1
+<ul><code>source: rtsp://admin:passworddvr@10.21.0.14:554/mode=real&idc=6&ids=1</ul>
+<li>
